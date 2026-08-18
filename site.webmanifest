@@ -1,0 +1,11 @@
+{
+  "name": "Care Reach Marketing",
+  "short_name": "Care Reach",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF6F0",
+  "theme_color": "#0F4C46",
+  "icons": [
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

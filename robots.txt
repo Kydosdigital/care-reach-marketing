@@ -1,4 +1,5 @@
+# Pre-launch: this temporary vercel.app address must not be indexed,
+# or it will compete with the real domain later. Set SITE_LIVE = True
+# in build.py and rebuild once carerm.co.uk is connected.
 User-agent: *
-Allow: /
-
-Sitemap: https://care-reach-marketing.vercel.app/sitemap.xml
+Disallow: /
