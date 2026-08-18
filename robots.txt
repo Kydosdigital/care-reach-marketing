@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://care-reach-marketing.vercel.app/sitemap.xml
