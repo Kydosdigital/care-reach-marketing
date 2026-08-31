@@ -483,3 +483,262 @@ select:focus-visible, textarea:focus-visible {
 .prose h2 { margin-top: 2rem; }
 .prose p, .prose li { line-height: 1.7; }
 .prose ul { margin-bottom: 1.25rem; }
+
+
+/* ============================================
+   Mobile responsiveness pass
+   ============================================ */
+
+/* Preserve shared container gutters when a component controls its own
+   vertical spacing. */
+.header-inner,
+.hero.container,
+.page-hero.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Plain alternate sections are used on pricing, case studies, resources,
+   FAQ, contact, privacy and 404 pages. Give them consistent breathing room. */
+.section-alt:not(.section):not(.section-sm) {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.grid > *,
+.pricing-grid > *,
+.footer-grid > *,
+.steps > * {
+  min-width: 0;
+}
+
+p, li, a {
+  overflow-wrap: anywhere;
+}
+
+/* Prevent iOS Safari zooming fields on focus and provide proper touch targets. */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-width: 0;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+@media (max-width: 1080px) {
+  .nav-links,
+  .nav-cta .btn-primary,
+  .nav-cta .btn-outline {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .main-nav.open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--color-cream);
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .main-nav.open .nav-links a {
+    display: block;
+    padding: 0.65rem 0;
+    font-size: 1rem;
+  }
+
+  .main-nav.open .mobile-only-cta {
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Keep the value proposition before the image on smaller screens. */
+  .hero-media {
+    order: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .container,
+  .header-inner,
+  .hero.container,
+  .page-hero.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .header-inner {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+
+  h1 { font-size: clamp(2rem, 10vw, 2.45rem); }
+  h2 { font-size: clamp(1.6rem, 8vw, 2rem); }
+  h3 { font-size: 1.18rem; }
+  .lede { font-size: 1.05rem; }
+
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-sm,
+  .section-alt:not(.section):not(.section-sm) {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .hero {
+    padding-top: 2.25rem;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  .hero-media img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .page-hero {
+    padding-top: 2.75rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-stat strong {
+    font-size: 1.45rem;
+  }
+
+  .grid,
+  .pricing-grid,
+  .steps {
+    gap: 1.25rem;
+  }
+
+  .card,
+  .pricing-card {
+    padding: 1.25rem;
+  }
+
+  .pricing-card.featured {
+    margin-top: 0.5rem;
+  }
+
+  .pricing-badge {
+    top: -12px;
+    right: 1rem;
+  }
+
+  .price { font-size: 2.1rem; }
+  .price-features { margin: 1rem 0; }
+  .price-features li { align-items: flex-start; }
+  .media-card img { height: 200px; }
+  .steps .step { padding-top: 3rem; }
+
+  .cta-band {
+    padding: 2rem 1.25rem;
+  }
+
+  .faq-question {
+    padding: 1rem;
+    font-size: 0.96rem;
+  }
+
+  .faq-answer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .faq-item.open .faq-answer {
+    padding: 0 1rem 1rem;
+  }
+
+  .form-grid { gap: 0; }
+  .form-field { margin-bottom: 0.9rem; }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .footer-grid { gap: 2rem; }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .site-footer {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container,
+  .header-inner,
+  .hero.container,
+  .page-hero.container {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  h1 { font-size: 1.95rem; }
+  .eyebrow { font-size: 0.72rem; }
+
+  .btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
