@@ -742,3 +742,66 @@ p, li, a {
     padding-right: 1rem;
   }
 }
+
+
+/* ============================================
+   Responsive image treatment
+   ============================================ */
+
+img {
+  height: auto;
+}
+
+/* Two-column editorial sections use a consistent crop so portrait source
+   photography cannot become an oversized wall of imagery on tablets. */
+.section-sm .container.grid.grid-2 > img,
+.section .container.grid.grid-2 > img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  max-height: 440px;
+}
+
+/* The contact-page portrait asset is especially tall. Keep it supportive
+   rather than letting it become taller than the form content. */
+.section-alt > .container.grid.grid-2 > div:last-child > img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+/* Portrait people shots need a slightly higher focal point when cropped. */
+img[src$="wheelchair-companion.webp"],
+img[src$="wheelchair-woman.webp"],
+img[src$="person-laptop.webp"] {
+  object-position: center 30%;
+}
+
+/* Interior photography benefits from retaining more of the middle of frame. */
+img[src$="medical-reception.webp"],
+img[src$="reception-interior.webp"] {
+  object-position: center 45%;
+}
+
+@media (max-width: 720px) {
+  /* Supporting imagery follows the copy on phones, consistently, rather
+     than alternating above and below the text from section to section. */
+  .section-sm .container.grid.grid-2 > img,
+  .section .container.grid.grid-2 > img {
+    order: 2;
+    aspect-ratio: 16 / 10;
+    max-height: none;
+  }
+
+  .section-alt > .container.grid.grid-2 > div:last-child > img {
+    aspect-ratio: 16 / 10;
+    max-height: none;
+    margin-top: 0.25rem;
+  }
+
+  .media-card img {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+}
